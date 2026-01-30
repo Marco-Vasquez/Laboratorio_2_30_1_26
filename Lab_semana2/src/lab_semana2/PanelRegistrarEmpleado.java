@@ -13,7 +13,6 @@
         GridBagConstraints g = new GridBagConstraints();
         g.insets = new Insets(5,5,5,5); g.fill = GridBagConstraints.HORIZONTAL;
 
-        
         agregarCampo(this, "Código:", new JTextField(10), g, 0);
         agregarCampo(this, "Nombre:", new JTextField(15), g, 1);
         agregarCampo(this, "Salario Base:", new JTextField(10), g, 2);
@@ -25,6 +24,7 @@
         g.gridy = 4; g.gridx = 0;
         JButton btnGuardar = new JButton("Guardar");
         add(btnGuardar, g);
+        //btnGuardar.addActionListener(e -> )
 
         g.gridx = 1;
         JButton btnRegresar = new JButton("Regresar");

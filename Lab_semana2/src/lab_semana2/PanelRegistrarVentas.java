@@ -18,7 +18,8 @@ public class PanelRegistrarVentas extends JPanel {
         pCentro.add(new JTextField());
         
 
-        add(pCentro, BorderLayout.CENTER);
+        add(pCentro, BorderLayout.CENTER);  
+        
 
         JButton btnRegresar = new JButton("Regresar al Menú");
         btnRegresar.addActionListener(e -> ventana.mostrarPanel("INICIO"));

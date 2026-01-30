@@ -13,14 +13,14 @@ public class Empleado {
     }
     
     public void registrarHoras(double horas){
-        this.horasTrabajadas=+this.horasTrabajadas+horas;
+        this.horasTrabajadas+=this.horasTrabajadas+horas;
     }
     
     public double calcularPagoMensual(){
-        return (horasTrabajadas/160)*salarioBase;
+        return ((horasTrabajadas/160)*salarioBase)-(0.035*((horasTrabajadas/160)*salarioBase));
     }
     
     public String mostrarInfo(){
-        return "Codigo: "+codigo+"\n Nombre: "+nombre+"\n Horas trabajadas: "+horasTrabajadas;
+        return "Codigo: "+codigo+"\nNombre: "+nombre+"\nHoras trabajadas: "+horasTrabajadas+"\nFecha de contratacion: "+fecha;
     }
 }
