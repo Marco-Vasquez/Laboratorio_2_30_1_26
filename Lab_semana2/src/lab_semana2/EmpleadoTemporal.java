@@ -1,14 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab_semana2;
-
-/**
- *
- * @author USER
- */
-public class EmpleadoTemporal {
+import java.time.LocalDate;
+public class EmpleadoTemporal extends Empleado {
     
+    LocalDate finContrato;
+
+    public EmpleadoTemporal(String codigo, String nombre, LocalDate finContrato) {
+        super(codigo, nombre);
+        this.finContrato=finContrato;
+    }
+    
+    @Override
+     public double calcularPagoMensual(){
+         if(LocalDate.now().isAfter(finContrato)){
+             return 0;
+         }
+        return super.calcularPagoMensual();
+     }
+     
+     public void actualizarFecha(LocalDate fecha){
+         finContrato=fecha;
+     }
+     
+    @Override
+    public String mostrarInfo(){
+        return super.mostrarInfo()+"\nFecha fin de contrato: "+finContrato;
+    }
 }
