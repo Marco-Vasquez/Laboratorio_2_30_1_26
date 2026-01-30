@@ -7,29 +7,28 @@
     import javax.swing.*;
     import java.awt.*;
 
-    public class PanelCalcularPago extends JPanel {
-        public PanelCalcularPago(VentanaPrincipal ventana) {
+public class PanelCalcularPago extends JPanel {
+    public PanelCalcularPago(VentanaPrincipal ventana, Empresa empresa) {
         setLayout(new BorderLayout());
-        setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        JTextField txtCod = new JTextField(10);
+        JLabel lblResultado = new JLabel("Pago: $0.00", SwingConstants.CENTER);
+        lblResultado.setFont(new Font("Arial", Font.BOLD, 20));
 
-        JPanel pBusqueda = new JPanel(new FlowLayout());
-        pBusqueda.add(new JLabel("Código:"));
-        pBusqueda.add(new JTextField(10));
-        JButton btnCalcular = new JButton("Calcular Pago");
-        pBusqueda.add(btnCalcular);
-        add(pBusqueda, BorderLayout.NORTH);
-
-        JPanel pResultado = new JPanel(new GridLayout(3, 1));
-        JLabel lblNombre = new JLabel("Empleado: ---", SwingConstants.CENTER);
-        JLabel lblMonto = new JLabel("Monto a Pagar: $0.00", SwingConstants.CENTER);
-        lblMonto.setFont(new Font("Arial", Font.BOLD, 18));
+        JPanel pNorte = new JPanel();
+        pNorte.add(new JLabel("Código:")); pNorte.add(txtCod);
         
-        pResultado.add(lblNombre);
-        pResultado.add(lblMonto);
-        add(pResultado, BorderLayout.CENTER);
+        JButton btnCalcular = new JButton("Calcular");
+        btnCalcular.addActionListener(e -> {
+            double pago = empresa.calcularPago(txtCod.getText());
+            lblResultado.setText("Pago Mensual: $" + String.format("%.2f", pago));
+        });
+        pNorte.add(btnCalcular);
 
-        JButton btnRegresar = new JButton("Regresar al Menú Principal");
-        btnRegresar.addActionListener(e -> ventana.mostrarPanel("INICIO"));
-        add(btnRegresar, BorderLayout.SOUTH);
+        add(pNorte, BorderLayout.NORTH);
+        add(lblResultado, BorderLayout.CENTER);
+        
+        JButton btnVolver = new JButton("Regresar");
+        btnVolver.addActionListener(e -> ventana.mostrarPanel("INICIO"));
+        add(btnVolver, BorderLayout.SOUTH);
     }
 }

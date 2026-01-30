@@ -13,7 +13,7 @@ public class Empleado {
     }
     
     public void registrarHoras(double horas){
-        this.horasTrabajadas=+this.horasTrabajadas+horas;
+        this.horasTrabajadas+=this.horasTrabajadas+horas;
     }
     
     public double calcularPagoMensual(){

@@ -8,34 +8,28 @@
     import java.awt.*;
 
 public class VentanaPrincipal extends JFrame {
-
     private CardLayout cardLayout;
     private JPanel panelContenedor;
+    private Empresa empresaLogic;
 
     public VentanaPrincipal() {
         setTitle("Gestión de Empleados");
-        setSize(600, 400);
+        setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        empresaLogic = new Empresa();
         cardLayout = new CardLayout();
         panelContenedor = new JPanel(cardLayout);
 
-        PanelInicio inicio = new PanelInicio(this);
-        PanelRegistrarEmpleado registrarEmpleado = new PanelRegistrarEmpleado(this);
-        PanelRegistrarHoras registrarHoras = new PanelRegistrarHoras(this);
-        PanelRegistrarVentas registrarVentas = new PanelRegistrarVentas(this);
-        PanelActualizarContrato actualizarContrato = new PanelActualizarContrato(this);
-        PanelCalcularPago calcularPago = new PanelCalcularPago(this);
-        PanelReportes reportes = new PanelReportes(this);
-
-        panelContenedor.add(inicio, "INICIO");
-        panelContenedor.add(registrarEmpleado, "REGISTRAR_EMPLEADO");
-        panelContenedor.add(registrarHoras, "REGISTRAR_HORAS");
-        panelContenedor.add(registrarVentas, "REGISTRAR_VENTAS");
-        panelContenedor.add(actualizarContrato, "ACTUALIZAR_CONTRATO");
-        panelContenedor.add(calcularPago, "CALCULAR_PAGO");
-        panelContenedor.add(reportes, "REPORTES");
+        
+        panelContenedor.add(new PanelInicio(this), "INICIO");
+        panelContenedor.add(new PanelRegistrarEmpleado(this, empresaLogic), "REGISTRAR_EMPLEADO");
+        panelContenedor.add(new PanelRegistrarHoras(this, empresaLogic), "REGISTRAR_HORAS");
+        panelContenedor.add(new PanelRegistrarVentas(this, empresaLogic), "REGISTRAR_VENTAS");
+        panelContenedor.add(new PanelActualizarContrato(this, empresaLogic), "ACTUALIZAR_CONTRATO");
+        panelContenedor.add(new PanelCalcularPago(this, empresaLogic), "CALCULAR_PAGO");
+        panelContenedor.add(new PanelReportes(this, empresaLogic), "REPORTES");
 
         add(panelContenedor);
         cardLayout.show(panelContenedor, "INICIO");

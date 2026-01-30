@@ -7,21 +7,24 @@
     import javax.swing.*;
     import java.awt.*;
 
-    public class PanelReportes extends JPanel {
-        public PanelReportes(VentanaPrincipal ventana) {
+public class PanelReportes extends JPanel {
+    public PanelReportes(VentanaPrincipal ventana, Empresa empresa) {
         setLayout(new BorderLayout());
+        JTextArea txtReporte = new JTextArea();
+        txtReporte.setEditable(false);
+        add(new JScrollPane(txtReporte), BorderLayout.CENTER);
 
-        String[] cols = {"Código", "Nombre", "Tipo", "Salario Final"};
-        JTable tabla = new JTable(new Object[][]{}, cols); 
-        add(new JScrollPane(tabla), BorderLayout.CENTER);
-
-        JPanel pSur = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        pSur.add(new JLabel("Total Empleados: 0"));
+        JButton btnGenerar = new JButton("Generar Reporte");
+        btnGenerar.addActionListener(e -> {
+            txtReporte.setText(empresa.generarReporte());
+        });
         
-        JButton btnRegresar = new JButton("Regresar");
-        btnRegresar.addActionListener(e -> ventana.mostrarPanel("INICIO"));
-        pSur.add(btnRegresar);
-
+        JPanel pSur = new JPanel();
+        pSur.add(btnGenerar);
+        JButton btnVolver = new JButton("Regresar");
+        btnVolver.addActionListener(e -> ventana.mostrarPanel("INICIO"));
+        pSur.add(btnVolver);
+        
         add(pSur, BorderLayout.SOUTH);
     }
 }
