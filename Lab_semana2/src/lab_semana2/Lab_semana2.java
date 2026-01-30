@@ -6,7 +6,7 @@
 package lab_semana2;
 
 /**
- *
+ *  
  * @author andres
  */
 public class Lab_semana2 {
