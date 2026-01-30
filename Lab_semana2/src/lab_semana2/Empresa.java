@@ -69,7 +69,7 @@ public class Empresa {
         return 0;
     }
     public String generarReporte(){
-        String reporte=" REPORTE DE EMPLEADOS ";
+        String reporte=" REPORTE DE EMPLEADOS \n\n\n ";
         int estandar=0, temporal=0, ventas=0;
         for(int control=0;control<empleados.size();control++){
             Empleado empleado=empleados.get(control);
@@ -93,12 +93,12 @@ public class Empresa {
             }
             else
                 estandar++;  
-            reporte+="-------------\n";
+            reporte+="--------------------------\n\n\n";
         }
         reporte+="Total de empleados: \n";
         reporte+="Estandar: "+estandar+"\n";
         reporte+="Temporal: "+temporal+"\n";
-        reporte+="Ventas: "+ventas+"\n";
+        reporte+="Ventas: "+ventas+"\n\n\n\n";
         return reporte;
     }
     
