@@ -24,8 +24,11 @@
         g.gridy = 4; g.gridx = 0;
         JButton btnGuardar = new JButton("Guardar");
         add(btnGuardar, g);
+
         //btnGuardar.addActionListener(e -> )
 
+        
+        
         g.gridx = 1;
         JButton btnRegresar = new JButton("Regresar");
         btnRegresar.addActionListener(e -> ventana.mostrarPanel("INICIO"));
