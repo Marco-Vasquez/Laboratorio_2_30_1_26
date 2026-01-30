@@ -11,7 +11,7 @@ public class VentanaPrincipal extends JFrame {
 
     private CardLayout cardLayout;
     private JPanel panelContenedor;
-
+    private Empresa empresa;
     public VentanaPrincipal() {
         setTitle("Gestión de Empleados");
         setSize(600, 400);
@@ -40,7 +40,6 @@ public class VentanaPrincipal extends JFrame {
         add(panelContenedor);
         cardLayout.show(panelContenedor, "INICIO");
     }
-
     public void mostrarPanel(String nombre) {
         cardLayout.show(panelContenedor, nombre);
     }
