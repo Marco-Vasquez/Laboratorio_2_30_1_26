@@ -25,6 +25,9 @@ public class PanelRegistrarEmpleado extends JPanel {
         agregarCampo(this, "Código:", txtCod, g, 0);
         agregarCampo(this, "Nombre:", txtNom, g, 1);
         agregarCampo(this, "Salario Base:", txtSal, g, 2);
+        agregarCampo(this, "Código:", new JTextField(10), g, 0);
+        agregarCampo(this, "Nombre:", new JTextField(15), g, 1);
+        agregarCampo(this, "Salario Base:", new JTextField(10), g, 2);
         
         g.gridx = 0; g.gridy = 3; add(new JLabel("Tipo:"), g);
         g.gridx = 1; add(cbTipo, g);
@@ -59,6 +62,11 @@ public class PanelRegistrarEmpleado extends JPanel {
         });
 
         g.gridy = 4; g.gridx = 0; add(btnGuardar, g);
+
+
+        
+        
+
         g.gridx = 1;
         JButton btnRegresar = new JButton("Regresar");
         btnRegresar.addActionListener(e -> ventana.mostrarPanel("INICIO"));

@@ -17,6 +17,9 @@ public class PanelRegistrarVentas extends JPanel {
         JTextField txtCod = new JTextField(10);
         JTextField txtMonto = new JTextField(10);
 
+  
+        
+
         g.gridx = 0; g.gridy = 0; add(new JLabel("Código Empleado:"), g);
         g.gridx = 1; add(txtCod, g);
         g.gridx = 0; g.gridy = 1; add(new JLabel("Monto de Venta ($):"), g);

@@ -69,25 +69,36 @@ public class Empresa {
         return 0;
     }
     public String generarReporte(){
-        String reporte=" REPORTE DE EMPLEADOS ";
+        String reporte=" REPORTE DE EMPLEADOS \n\n\n ";
         int estandar=0, temporal=0, ventas=0;
         for(int control=0;control<empleados.size();control++){
             Empleado empleado=empleados.get(control);
             reporte=reporte+empleados.get(control).mostrarInfo()+"\n";
             reporte=reporte+"Pago mensual: "+empleados.get(control).calcularPagoMensual()+"\n";
+            
+            double pago=empleado.calcularPagoMensual();
+            reporte+="Pago mensual: "+pago+"\n";
+            
             String tipo=empleado.getClass().getSimpleName();
             if(tipo.equals("EmpleadoTemporal")){
                 temporal++;
             }
             else if(tipo.equals("EmpleadoVentas")){
+                EmpleadoVentas empv=(EmpleadoVentas)empleado;
+                double comision=empv.calculoComision();
+                double ventasMes=empv.ventasMens[LocalDate.now().getMonthValue()-1];
+                reporte+="Ventas mes actual: "+ventasMes+"\n";
+                reporte+="Comisión mes actual: "+comision+"\n";
                 ventas++;
             }
             else
-                estandar++;    
+                estandar++;  
+            reporte+="--------------------------\n\n\n";
         }
         reporte+="Total de empleados: \n";
         reporte+="Estandar: "+estandar+"\n";
         reporte+="Temporal: "+temporal+"\n";
+        reporte+="Ventas: "+ventas+"\n\n\n\n";
         return reporte;
     }
     
