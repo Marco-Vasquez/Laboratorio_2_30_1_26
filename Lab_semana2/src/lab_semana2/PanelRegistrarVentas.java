@@ -16,6 +16,7 @@ public class PanelRegistrarVentas extends JPanel {
         pCentro.add(new JTextField());
         pCentro.add(new JLabel("Monto de Venta:"));
         pCentro.add(new JTextField());
+        
 
         add(pCentro, BorderLayout.CENTER);
 

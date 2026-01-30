@@ -11,6 +11,8 @@ public class Lab_semana2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        VentanaPrincipal n=new VentanaPrincipal();
+        n.setVisible(true);
     }
     
 }

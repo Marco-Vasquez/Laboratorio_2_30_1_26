@@ -23,5 +23,4 @@ public class Empleado {
     public String mostrarInfo(){
         return "Codigo: "+codigo+"\n Nombre: "+nombre+"\n Horas trabajadas: "+horasTrabajadas;
     }
-    
 }
