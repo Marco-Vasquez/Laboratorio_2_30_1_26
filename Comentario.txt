@@ -1,0 +1,2 @@
+Instalar libreria .jar JDateChooser 
+para poder usar import com.toedter.calendar.JDateChooser;
